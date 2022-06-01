@@ -1,0 +1,111 @@
+/*GENERAL DESCRIPTION*/
+-Employe manager that will allow you to see all the information from the same platform and edit it.
+-CRUD APP thatr allow you(Create Read Update Delete) over employees.
+-CRUD of employees over a json file.
+-handling encrypted passwords
+-And connecting with external Web Services from the server in order to get the employee avatar, API CURL
+
+/*STRUCTURE FILES GENERAL*/
+-Login Page (index.php):  login and logout management through user session
+-Employees Dashboard (dashboard.php): Table of employees
+-Employee Page (employee.php): Show/edit employee information
+-JSON FILE all employees, (Employee.json)
+-To do the table need external libraries or by ourself?
+
+
+/*SPECIFIC EXPLANATION*/
+LOGIN
+-Create a login page
+-login to the app with a known admin user
+-If the login attempt fails you must respond with an error message
+-Password must be stored ecrypted json
+-Manipulate password 
+-password_hash() algorithm must be used to encrypt the password 
+-password_verify() algorithm to verify that it is correct.
+-Check if the user is logged in in each page 
+-If not logged and try to access redirect to login
+-Users are stored in users.json
+
+
+EMPLOYEE TABLE
+-Once logged, you need to show the employees data in a table
+-Employees are stored in JSON employee.json
+-able to create employees from table
+-structure.
+	navigation bar:(must indicate in which page you are)
+	-Logout btn remove users session data, redirect login page
+	-Table: All the employes showed in table from a json
+		"+ btn" :  add a new employee
+			Message: "Created succesfully"
+		"trash icon" : Delete employee
+			"ok"
+			"Message: "Deleted succesfully"
+			"cancel" cancel the operatio"
+		"Pagination" : 10 employees each page
+
+
+
+
+EMPLOYEE TABLE.
+-Click in employee of table go to employee page to update a employee.
+-All data defined in inputs -> Name , lastaname ,  email , gender , City , street address, State , age,Postal C. , phone number
+-Once you have updated the employee information, you must press the "submit" button and insert the data into the JSON file
+-message will be displayed informing if the changes have been implemented
+-Return  go back to Employees Dashboard.
+-* All operations over the data table must be reflected in both table and file simultaneously.(ASYNCHRONOUS) JAVASCRIPT.
+
+
+/*REQUIREMENTS*/
+-PHP must be used to interact with the JSON files 
+-and to receive POST request create an employee and update it. This requests must be sended by POST using forms.
+-In dashboard need to delete add users without refreshing asynchronous (Javascript)
+-use password_verify () to verify the stored encrypted password (123456) of the user login within the JSON file
+-When you do any of the actions of the employees, you must show an alert on the screen indicating if the action was successful or there was an error.
+-You must use the PHP session variables for login
+-You must use PHP server variables related to the HTTP verbs in order to know what kind of request is coming from (POST, DELETE, …).
+-When the user has exceeded 10 min logged in or has previously logged out, the session for that user must be destroyed and redirected to the login page (index.php).
+
+
+
+
+/*EXTRAS*/
+-Add avatar
+-JSGRID
+
+
+/*FILES*/
+
+RESOURCES: THE MODEL (data)
+“employees.json”: It contains all the information about employees.
+“users.json”: It contains the user to login to your application
+	By default you must use the user that is provided to you with whose password is "123456".
+
+SRC: THE VIEW (user interface) 
+“dashboard.php”:
+This file will be the main view of the application once the user has logged in and it should show the employees table
+“employee.php”
+This file will be the employee view that will be used as much to view/edit an existing one or to create a new one.
+
+SRC/LIBRARY:THE CONTROLLER (ALL THE FUNCTIONS)
+This folder will contain only PHP files that will contain only PHP code.
+These files will be the core of the project, they will contain the main functionalities of both login and employees management.
+
+
+“employeeController.php”
+This file will handle the HTTP requests that will be made to create, read, update and delete the employees and for this it must include the  “employeeManager.php” file and call the corresponding functions of it that will be in charge of performing the operations.
+
+“employeeManager.php”
+This file will perform the necessary operations (create, read, update and delete) which will be called later by the "employeeController.php" file.
+
+“loginController.php”
+This file will handle the user's HTTP requests when they want to log in or log out, therefore, it must call the functions of the "loginManager.php" once the request has been received to carry out the action.
+
+“loginManager.php”
+This file will contain the necessary functions so that the user can log in, save their session data and log out.
+
+“sessionHelper.php”
+This file will check that the user session is still active and if not, you must call the corresponding function of "loginManager.php" to logout the user. In the event that the user remains more than 10 minutes in the session, the user will have to be logged out.
+You will have to take into account that in order for the controllers to execute the functions of their respective "managers" files, you must include this files into the corresponding controllers.
+
+
+
