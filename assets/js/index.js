@@ -50,7 +50,7 @@ function createTableEmployees(user) {
   tr.appendChild(deleteCol);
   return tr;
 }
-
+//!DELETE EMPLOYEE
 function deleteEmployee(e) {
   const id = e.target.dataset.id;
   //post data to send
@@ -63,6 +63,6 @@ function deleteEmployee(e) {
   })
     .then((data) => data.text())
     .then((data) => {
-      console.log(data);
+      fetchEmployees();
     });
 }
