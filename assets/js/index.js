@@ -15,9 +15,9 @@ async function fetchEmployees() {
   const data = new FormData();
   data.set("function", "read");
   fetch(urlPHP, {
-    method: "POST",
-    body: data,
-  })
+      method: "POST",
+      body: data,
+    })
     .then((reponse) => reponse.text())
     .then((data) => {
       const users = JSON.parse(data);
@@ -61,10 +61,10 @@ function deleteEmployee(e) {
   data.set("function", "delete");
   data.set("employeeID", id);
   fetch(urlPHP, {
-    method: "POST",
-    body: data,
-  })
-    .then((data) => data.text())
+      method: "POST",
+      body: data,
+    })
+    .then((response) => response.text())
     .then((data) => {
       fetchEmployees();
     });
@@ -74,7 +74,20 @@ function deleteEmployee(e) {
 function updateEmployee(e) {
   if (e.target.id !== "employeeDelete") {
     //TR WITH ID
-    console.log(e.target.parentElement);
+    const id = e.target.parentElement.dataset.id;
+    const data = new FormData();
+    data.set("function", "update");
+    data.set("employeeID", id);
+    fetch(urlPHP, {
+        method: "POST",
+        body: data,
+      })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        // updateEmployeeForm(data);
+        window.location.href = '../src/employee.php';
+      });
   }
 }
 

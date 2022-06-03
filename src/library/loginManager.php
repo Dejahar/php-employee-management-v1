@@ -1,4 +1,5 @@
 <?php
+require "sessionHelper.php";
 session_start();
 
 
@@ -29,13 +30,31 @@ function validateLogin($email, $password)
 function validatePassword($password)
 {
   if (password_verify($_POST['password'], $password)) {
+    sessionOpen();
     header('Location: ' . '../dashboard.php');
-    //session 10min cookie
   } else {
     echo 'password failed';
     //HTML error message
     $_SESSION['error_message'] = 'Password is not ok';
-    header('Location: ' . '../../');
   }
 }
 
+function logout()
+{
+  unset($_SESSION);
+
+  if (ini_get("session.use_cookies")) {
+    $params = session_get_cookie_params();
+    setcookie(
+      session_name(),
+      '',
+      time() - 42000,
+      $params["login"],
+      $params["error_message"]
+    );
+  }
+
+  sessionClose();
+  session_destroy();
+  header('Location: ' . '../../');
+}

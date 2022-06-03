@@ -5,5 +5,6 @@ if(isset($_POST['login'])){
     login();
 }
 
-// if(isset($_POST['logout'])){
-// }
+if(isset($_GET['logout'])){
+    logout();
+}

@@ -4,13 +4,14 @@ $function = $_POST["function"];
 
 switch ($function) {
     case 'create':
-        # code...
+        getNewEmployeeInput();
         break;
     case 'read':
         getAllEmployees();
         break;
     case 'update':
-        # code...
+        $id = $_POST["employeeID"];
+        getEmployee($id);
         break;
     case 'delete':
         $id = $_POST["employeeID"];
