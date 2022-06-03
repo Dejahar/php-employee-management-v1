@@ -178,7 +178,15 @@ function createFormDashboard(e) {
 function addInputsToForm(tr) {
   const form = document.createElement("form");
   form.id = "createForm";
+  document.body.append(form);
   const inputs = tr.querySelectorAll("input");
+  inputs.forEach((input) => {
+    input.setAttribute("form", "createForm");
+  });
 }
 
-function createEmployee(e) {}
+function createEmployee(e) {
+  const form = document.getElementById("createForm");
+  const data = new FormData(form);
+  console.log(data.get("inputName"));
+}
