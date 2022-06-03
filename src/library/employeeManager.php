@@ -10,7 +10,7 @@ function getDataEmployee()
 function getAllEmployees()
 {
     $employeeData = getDataEmployee();
-    //Convert string JSON to PHP 
+    //Convert string JSON to PHP
     echo $employeeData;
 }
 function deleteEmployee($id)
@@ -24,6 +24,7 @@ function deleteEmployee($id)
             $save = json_encode(array_values($employees), JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
             if (file_put_contents($employeeJSON, $save) !== false) {
                 echo "EMPLOYEE DELETED";
+                getAllEmployees();
             }
         }
     }
