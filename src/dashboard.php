@@ -10,6 +10,7 @@ echo "DASHBOARD HERE";
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="../assets/js/index.js" defer></script>
+    <link rel="stylesheet" href="../assets/css/dashboard.css">
 </head>
 <body>
     <!-- TABLE LISTING EMPLOYEES -->
