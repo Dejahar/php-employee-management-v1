@@ -30,6 +30,7 @@ function createTableEmployees(user) {
   const tr = document.createElement("tr");
   tr.className = "table-employee__body-row";
   tr.setAttribute("data-id", user.id);
+  tr.addEventListener("click", updateEmployee);
   for (const [key, value] of Object.entries(user)) {
     if (key !== "id" && key !== "gender") {
       const td = document.createElement("td");
@@ -50,7 +51,7 @@ function createTableEmployees(user) {
   tr.appendChild(deleteCol);
   return tr;
 }
-
+//!DELETE EMPLOYEE
 function deleteEmployee(e) {
   const id = e.target.dataset.id;
   //post data to send
@@ -63,6 +64,14 @@ function deleteEmployee(e) {
   })
     .then((data) => data.text())
     .then((data) => {
-      console.log(data);
+      fetchEmployees();
     });
+}
+
+//!UPDATE EMPLOYEE
+function updateEmployee(e) {
+  if (e.target.id !== "employeeDelete") {
+    //TR WITH ID
+    console.log(e.target.parentElement);
+  }
 }
