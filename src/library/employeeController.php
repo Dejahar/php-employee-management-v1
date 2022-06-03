@@ -4,7 +4,7 @@ $function = $_POST["function"];
 
 switch ($function) {
     case 'create':
-        # code...
+        getNewEmployeeInput();
         break;
     case 'read':
         getAllEmployees();

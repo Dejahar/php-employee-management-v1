@@ -1,8 +1,6 @@
 <?php
 session_start();
-if (!isset($_SESSION['login'])) {
-    header('Location:./dashboard.php');
-}
+
 ?>
 
 <!DOCTYPE html>
@@ -21,7 +19,7 @@ if (!isset($_SESSION['login'])) {
     <?php include('../assets/html/header.html') ?>
   </header>
   <main class="employee-update">
-    <form action="employeeController.php">
+    <form action="./library/employeeController.php" method = 'POST'>
       <!-- FIELD 1  -->
       <fieldset class="employee-update__fieldset">
         <!-- NAME -->
@@ -93,9 +91,9 @@ if (!isset($_SESSION['login'])) {
       <!-- FIELDSET 6 -->
       <fieldset class="employee-update__fieldset update-container__btn">
         <!-- SEND DATA TO UPDATE -->
-        <a href="employeeController.php"><button class="primary-btn">Send</button></a>
+        <a href="./library/employeeController.php" ><button class="primary-btn" name="function" value="create">Send</button></a>
         <!-- RETURN TO DASHBOARD -->
-        <a href="dashboard.html"><button>Return</button></a>
+        <a href="./dashboard.html"><button>Return</button></a>
       </fieldset>
     </form>
   </main>
