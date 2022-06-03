@@ -10,7 +10,8 @@ switch ($function) {
         getAllEmployees();
         break;
     case 'update':
-        # code...
+        $id = $_POST["employeeID"];
+        getEmployee($id);
         break;
     case 'delete':
         $id = $_POST["employeeID"];

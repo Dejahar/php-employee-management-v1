@@ -1,6 +1,5 @@
 <?php
 session_start();
-
 ?>
 
 <!DOCTYPE html>
@@ -91,11 +90,12 @@ session_start();
       <!-- FIELDSET 6 -->
       <fieldset class="employee-update__fieldset update-container__btn">
         <!-- SEND DATA TO UPDATE -->
-        <a href="./library/employeeController.php" ><button class="primary-btn" name="function" value="create">Send</button></a>
-        <!-- RETURN TO DASHBOARD -->
-        <a href="./dashboard.html"><button>Return</button></a>
-      </fieldset>
+        <a href="../src/dashboard.php"><button class="primary-btn" name="function" value="create">Send</button></a>
+        
     </form>
+    <!-- RETURN TO DASHBOARD -->
+        <a href="../src/dashboard.php"><button>Return</button></a>
+      </fieldset>
   </main>
 </body>
 

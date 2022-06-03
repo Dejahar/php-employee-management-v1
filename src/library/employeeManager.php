@@ -70,17 +70,28 @@ function addEmployee(stdClass $newEmployee)
 // }
 
 
+// function updateEmployee($id)
+// {
+//   $data = getEmployee($id);
+//   print_r($data);
+// }
+
 // function updateEmployee(array $updateEmployee)
 // {
 // // TODO implement it
 // }
 
 
-// function getEmployee(string $id)
-// {
-// // TODO implement it
-
-// }
+function getEmployee($id)
+{
+  $employeeData = getDataEmployee();
+  $employees = json_decode($employeeData);
+  foreach ($employees as $key => $employee) {
+    if ($employee->id == $id) {
+      echo json_encode($employee);
+    }
+  }
+}
 
 
 // function removeAvatar($id)
@@ -97,5 +108,5 @@ function addEmployee(stdClass $newEmployee)
 
 function getNextId(array $employeesCollection): int
 {
-  return sizeof($employeesCollection)+1;
+  return sizeof($employeesCollection) + 1;
 }
