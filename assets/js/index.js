@@ -71,25 +71,15 @@ function deleteEmployee(e) {
 //!UPDATE EMPLOYEE
 function updateEmployee(e) {
   if (e.target.id !== "employeeDelete") {
+    window.location.href = '../src/employee.php';
     //TR WITH ID
     const id = e.target.parentElement.dataset.id;
     const data = new FormData();
     data.set("function", "update");
     data.set("employeeID", id);
     fetch(urlPHP, {
-        method: "POST",
-        body: data,
-      })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-        // updateEmployeeForm(data);
-        window.location.href = '../src/employee.php';
-      });
+      method: "POST",
+      body: data,
+    })
   }
 }
-
-//!UPDATE FORM
-// updateEmployeeForm(data){
-
-// }

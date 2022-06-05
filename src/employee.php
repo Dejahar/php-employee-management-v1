@@ -18,18 +18,18 @@ session_start();
     <?php include('../assets/html/header.html') ?>
   </header>
   <main class="employee-update">
-    <form action="./library/employeeController.php" method = 'POST'>
+    <form action="./library/employeeController.php" method='POST'>
       <!-- FIELD 1  -->
       <fieldset class="employee-update__fieldset">
         <!-- NAME -->
         <label for="nameUpdate" class="employee-update__label">
           <span>Name:</span>
-          <input type="text" class="employee-update__input" name="nameUpdate" id="nameUpdate" />
+          <input type="text" class="employee-update__input" name="nameUpdate" id="nameUpdate" value="<?= $_SESSION['nameUpdate'] ?>" />
         </label>
         <!-- LASTNAME -->
         <label for="lastNameUpdate" class="employee-update__label">
           <span>Last name:</span>
-          <input type="text" class="employee-update__input" name="lastNameUpdate" id="lasNameUpdate" />
+          <input type="text" class="employee-update__input" name="lastNameUpdate" id="lastNameUpdate" value="<?= $_SESSION['lastNameUpdate'] ?>" />
         </label>
       </fieldset>
       <!-- FIELD 2 -->
@@ -37,14 +37,24 @@ session_start();
         <!-- EMAIL -->
         <span>Email:</span>
         <label for="emailUpdate" class="employee-update__label">
-          <input type="email" class="employee-update__input" name="emailUpdate" id="emailUpdate" />
+          <input type="email" class="employee-update__input" name="emailUpdate" id="emailUpdate" value="<?= $_SESSION['emailUpdate'] ?>" />
         </label>
         <!-- GENDER -->
         <label for="" class="employee-update__label">
           <span>Gender</span>
           <select class="employee-update__input" name="genderUpdate" id="genderUpdate">
-            <option value="men">Man</option>
-            <option value="women">Woman</option>
+            <?php
+            if ($_SESSION['genderUpdate'] == 'man') {
+              echo '<option value="men" selected>Man</option>
+              <option value="women">Woman</option>';
+            } else if ($_SESSION['genderUpdate'] == 'woman') {
+              echo
+              '<option value="men">Man</option>
+              <option value="women" selected>Woman</option>';
+            } else echo
+            '<option value="men">Man</option>
+              <option value="women">Woman</option>'
+            ?>
           </select>
         </label>
       </fieldset>
@@ -53,12 +63,12 @@ session_start();
         <!-- CITY -->
         <label for="cityUpdate" class="employee-update__label">
           <span>City</span>
-          <input type="text" class="employee-update__input" name="cityUpdate" id="cityUpdate" />
+          <input type="text" class="employee-update__input" name="cityUpdate" id="cityUpdate" value="<?= $_SESSION['cityUpdate'] ?>" />
         </label>
         <!-- STREET ADDRESS -->
         <label for="streetUpdate" class="employee-update__label">
           <span>Street</span>
-          <input type="text" class="employee-update__input" name="streetUpdate" id="streetUpdate" />
+          <input type="text" class="employee-update__input" name="streetUpdate" id="streetUpdate" value="<?= $_SESSION['streetUpdate'] ?>" />
         </label>
       </fieldset>
       <!-- FIELDSET 4 -->
@@ -66,12 +76,12 @@ session_start();
         <!-- STATE -->
         <label for="stateUpdate" class="employee-update__label">
           <span>State:</span>
-          <input type="text" class="employee-update__input" name="stateUpdate" id="stateUpdate" />
+          <input type="text" class="employee-update__input" name="stateUpdate" id="stateUpdate" value="<?= $_SESSION['stateUpdate'] ?>" />
         </label>
         <!-- AGE -->
         <label for="ageUpdate" class="employee-update__label">
           <span>Age:</span>
-          <input type="number" class="employee-update__input" name="ageUpdate" id="ageUpdate" />
+          <input type="number" class="employee-update__input" name="ageUpdate" id="ageUpdate" Value="<?= $_SESSION['ageUpdate'] ?>" />
         </label>
       </fieldset>
       <!-- FIELDSET 5 -->
@@ -79,23 +89,23 @@ session_start();
         <!-- POSTAL CODE -->
         <label for="postalUpdate" class="employee-update__label">
           <span>Postal code:</span>
-          <input type="number" class="employee-update__input" name="postalUpdate" id="postalUpdate" />
+          <input type="number" class="employee-update__input" name="postalUpdate" id="postalUpdate" Value="<?= $_SESSION['postalUpdate'] ?>" />
         </label>
         <!-- PHONE NUMBER -->
         <label for="phoneUpdate" class="employee-update__label">
           <span>Phone number:</span>
-          <input type="text" class="employee-update__input" name="phoneUpdate" id="phoneUpdate" />
+          <input type="text" class="employee-update__input" name="phoneUpdate" id="phoneUpdate" value="<?= $_SESSION['phoneUpdate'] ?>" />
         </label>
       </fieldset>
       <!-- FIELDSET 6 -->
       <fieldset class="employee-update__fieldset update-container__btn">
         <!-- SEND DATA TO UPDATE -->
         <a href="../src/dashboard.php"><button class="primary-btn" name="function" value="create">Send</button></a>
-        
+
     </form>
+    </fieldset>
     <!-- RETURN TO DASHBOARD -->
-        <a href="../src/dashboard.php"><button>Return</button></a>
-      </fieldset>
+    <a href="../src/dashboard.php"><button>Return</button></a>
   </main>
 </body>
 
