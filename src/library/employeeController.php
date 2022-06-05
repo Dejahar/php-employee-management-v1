@@ -11,7 +11,6 @@ switch ($function) {
         break;
     case 'update':
         $id = $_POST["employeeID"];
-        header('Location: ' . '../employee.php');
         getEmployee($id);
         break;
     case 'delete':
