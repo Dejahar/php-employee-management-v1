@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 function getDataEmployee()
 {
   //Url json with employees
@@ -88,10 +90,20 @@ function getEmployee($id)
   $employees = json_decode($employeeData);
   foreach ($employees as $key => $employee) {
     if ($employee->id == $id) {
-      echo json_encode($employee);
+      $_SESSION['nameUpdate'] = $employee->name;
+      $_SESSION['lastNameUpdate'] = $employee->lastName;
+      $_SESSION['emailUpdate'] = $employee->email;
+      $_SESSION['genderUpdate'] = $employee->gender;
+      $_SESSION['cityUpdate'] = $employee->city;
+      $_SESSION['streetUpdate'] = $employee->streetAddress;
+      $_SESSION['stateUpdate'] = $employee->state;
+      $_SESSION['ageUpdate'] = $employee->age;
+      $_SESSION['postalUpdate'] = $employee->postalCode;
+      $_SESSION['phoneUpdate'] = $employee->phoneNumber;
     }
   }
 }
+
 
 
 // function removeAvatar($id)

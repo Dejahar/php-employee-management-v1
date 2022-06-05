@@ -1,5 +1,15 @@
 <?php
 session_start();
+$_SESSION['nameUpdate'] = '';
+$_SESSION['lastNameUpdate'] = '';
+$_SESSION['emailUpdate'] = '';
+$_SESSION['genderUpdate'] = '';
+$_SESSION['cityUpdate'] = '';
+$_SESSION['streetUpdate'] = '';
+$_SESSION['stateUpdate'] = '';
+$_SESSION['ageUpdate'] = '';
+$_SESSION['postalUpdate'] = '';
+$_SESSION['phoneUpdate'] = '';
 ?>
 
 <!DOCTYPE html>
