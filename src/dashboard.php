@@ -1,5 +1,9 @@
 <?php
-session_start();
+require_once "./library/sessionHelper.php";
+if (!isset($_SESSION)) {
+  session_start();
+}
+
 $_SESSION['nameUpdate'] = '';
 $_SESSION['lastNameUpdate'] = '';
 $_SESSION['emailUpdate'] = '';
@@ -10,6 +14,12 @@ $_SESSION['stateUpdate'] = '';
 $_SESSION['ageUpdate'] = '';
 $_SESSION['postalUpdate'] = '';
 $_SESSION['phoneUpdate'] = '';
+
+// setInterval(function () {
+//   if (!isset($_COOKIE['LogCookie'])) {
+//     sessionClose();
+//   }
+// }, 1000);
 ?>
 
 <!DOCTYPE html>
@@ -20,7 +30,8 @@ $_SESSION['phoneUpdate'] = '';
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-  <script type="module" src="../assets/js/index.js" defer></script>
+  <script src="../assets/js/index.js" defer></script>
+  <link rel="stylesheet" href="../assets/css/dashboard.css">
 </head>
 
 <body>

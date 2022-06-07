@@ -1,18 +1,5 @@
 [
     {
-        "id": 1,
-        "name": "Rack",
-        "lastName": "Lei",
-        "email": "jackon@network.com",
-        "gender": "man",
-        "city": "San Jone",
-        "streetAddress": "126",
-        "state": "CA",
-        "age": "24",
-        "postalCode": "394221",
-        "phoneNumber": "7383627627"
-    },
-    {
         "id": "2",
         "name": "John",
         "lastName": "Doe",
@@ -40,9 +27,9 @@
     },
     {
         "id": 4,
-        "name": "Richard",
-        "lastName": "Desmond",
-        "email": "dismond@foo.com",
+        "name": "as",
+        "lastname": "as",
+        "email": "ass",
         "gender": "man",
         "age": 30,
         "streetAddress": "90",
@@ -76,18 +63,5 @@
         "state": "bcn",
         "postalCode": "1221",
         "phoneNumber": "21212121"
-    },
-    {
-        "id": 7,
-        "name": "Maria",
-        "lastName": "Albertina",
-        "email": "ab@gmail.com",
-        "gender": "men",
-        "age": "28",
-        "streetAddress": "12",
-        "city": "Faro",
-        "state": "Fro",
-        "postalCode": "211212",
-        "phoneNumber": "45654879"
     }
 ]

@@ -1,5 +1,5 @@
 <?php
-require_once "loginManager.php";
+require "loginManager.php";
 
 if(isset($_POST['login'])){
     login();

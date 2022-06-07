@@ -1,12 +1,29 @@
 <?php
-session_start();
+require_once "loginManager.php";
 
-function sessionOpen(){
-    $_SESSION['login'] = true;
-    $lifeTime = 5;
-    session_set_cookie_params($lifeTime);
+if (!isset($_SESSION)) {
+    session_start();
 }
 
-function sessionClose(){
-    $_SESSION['login'] = false;
-};
+function sessionOpen()
+{
+    // $_SESSION['login'] = true;
+    $lifeTime = 5;
+    // setcookie("LogCookie", "", time() + $lifeTime);
+}
+
+function sessionClose()
+{
+    // $_SESSION['login'] = false;
+    // echo "OUT";
+    logout();
+}
+
+// function setInterval($f, $milliseconds)
+// {
+//     $seconds = (int)$milliseconds / 1000;
+//     while (true) {
+//         $f();
+//         sleep($seconds);
+//     }
+// }

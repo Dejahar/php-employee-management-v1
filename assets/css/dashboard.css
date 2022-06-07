@@ -1,0 +1,18 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  height: 100vh;
+  width: 100%;
+}
+.table-employee {
+  width: 100%;
+}
+.table-employee > input {
+  width: 100%;
+}
+.table-employee__create-input {
+  width: 100%;
+}
