@@ -51,6 +51,7 @@ function createTableEmployees(user) {
   tr.appendChild(deleteCol);
   return tr;
 }
+
 //!DELETE EMPLOYEE
 function deleteEmployee(e) {
   const id = e.target.dataset.id;

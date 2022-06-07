@@ -33,9 +33,9 @@ function validatePassword($password)
     sessionOpen();
     header('Location: ' . '../dashboard.php');
   } else {
-    echo 'password failed';
     //HTML error message
     $_SESSION['error_message'] = 'Password is not ok';
+    header('Location: ' . '../../');
   }
 }
 

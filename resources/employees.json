@@ -63,5 +63,31 @@
         "state": "KNT",
         "postalCode": "445321",
         "phoneNumber": "224355488976"
+    },
+    {
+        "id": 6,
+        "name": "Miguel",
+        "lastName": "Dominguez",
+        "email": "mid@gmail.com",
+        "gender": "men",
+        "age": "21",
+        "streetAddress": "12",
+        "city": "barcelona",
+        "state": "bcn",
+        "postalCode": "1221",
+        "phoneNumber": "21212121"
+    },
+    {
+        "id": 7,
+        "name": "Maria",
+        "lastName": "Albertina",
+        "email": "ab@gmail.com",
+        "gender": "men",
+        "age": "28",
+        "streetAddress": "12",
+        "city": "Faro",
+        "state": "Fr",
+        "postalCode": "211212",
+        "phoneNumber": "45654879"
     }
 ]

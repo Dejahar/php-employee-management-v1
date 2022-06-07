@@ -40,7 +40,7 @@ function getNewEmployeeInput()
   $employees = json_decode(getDataEmployee());
   $newEmployee->id = getNextId($employees);
   $newEmployee->name = $_POST['nameUpdate'];
-  $newEmployee->lastname =  $_POST['lastNameUpdate'];
+  $newEmployee->lastName =  $_POST['lastNameUpdate'];
   $newEmployee->email = $_POST['emailUpdate'];
   $newEmployee->gender = $_POST['genderUpdate'];
   $newEmployee->age = $_POST['ageUpdate'];
@@ -65,6 +65,38 @@ function addEmployee(stdClass $newEmployee)
   }
 }
 
+function getEmployee($id)
+{
+  $employeeData = getDataEmployee();
+  $employees = json_decode($employeeData);
+  foreach ($employees as $key => $employee) {
+    if ($employee->id == $id) {
+      $_SESSION['nameUpdate'] = $employee->name;
+      $_SESSION['lastNameUpdate'] = $employee->lastName;
+      $_SESSION['emailUpdate'] = $employee->email;
+      $_SESSION['genderUpdate'] = $employee->gender;
+      $_SESSION['cityUpdate'] = $employee->city;
+      $_SESSION['streetUpdate'] = $employee->streetAddress;
+      $_SESSION['stateUpdate'] = $employee->state;
+      $_SESSION['ageUpdate'] = $employee->age;
+      $_SESSION['postalUpdate'] = $employee->postalCode;
+      $_SESSION['phoneUpdate'] = $employee->phoneNumber;
+    }
+  }
+}
+
+function getNextId(array $employeesCollection): int
+{
+  foreach($employeesCollection as $key => $employee){
+    if($employee -> email == $_POST['emailUpdate']){
+      $id = $employee -> id;
+      deleteEmployee($id);
+      return $id;
+    }
+  }
+  return sizeof($employeesCollection) + 1;
+}
+
 
 // function deleteEmployee(string $id)
 // {
@@ -84,29 +116,6 @@ function addEmployee(stdClass $newEmployee)
 // }
 
 
-function getEmployee($id)
-{
-  $employeeData = getDataEmployee();
-  $employees = json_decode($employeeData);
-  foreach ($employees as $key => $employee) {
-    if ($employee->id == $id) {
-      $_SESSION['nameUpdate'] = $employee->name;
-      $_SESSION['lastNameUpdate'] = $employee->lastName;
-      $_SESSION['emailUpdate'] = $employee->email;
-      $_SESSION['genderUpdate'] = $employee->gender;
-      $_SESSION['cityUpdate'] = $employee->city;
-      $_SESSION['streetUpdate'] = $employee->streetAddress;
-      $_SESSION['stateUpdate'] = $employee->state;
-      $_SESSION['ageUpdate'] = $employee->age;
-      $_SESSION['postalUpdate'] = $employee->postalCode;
-      $_SESSION['phoneUpdate'] = $employee->phoneNumber;
-    }
-  }
-  $_SESSION['resetEmployeeFields'] = true;
-}
-
-
-
 // function removeAvatar($id)
 // {
 // // TODO implement it
@@ -118,8 +127,3 @@ function getEmployee($id)
 // // TODO implement it
 // return [];
 // }
-
-function getNextId(array $employeesCollection): int
-{
-  return sizeof($employeesCollection) + 1;
-}
