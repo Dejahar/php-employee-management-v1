@@ -70,7 +70,7 @@
         "lastName": "Dominguez",
         "email": "mid@gmail.com",
         "gender": "men",
-        "age": "21",
+        "age": "36",
         "streetAddress": "12",
         "city": "barcelona",
         "state": "bcn",
@@ -86,7 +86,7 @@
         "age": "28",
         "streetAddress": "12",
         "city": "Faro",
-        "state": "Fr",
+        "state": "Fro",
         "postalCode": "211212",
         "phoneNumber": "45654879"
     }
