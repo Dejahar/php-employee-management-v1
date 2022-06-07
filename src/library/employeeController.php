@@ -4,7 +4,12 @@ $function = $_POST["function"];
 
 switch ($function) {
     case 'create':
+        if($_POST["dashboardCreate"]){
+            createEmployeeDashboard($_POST);
+        }
+        else{
         getNewEmployeeInput();
+        }
         break;
     case 'read':
         getAllEmployees();
