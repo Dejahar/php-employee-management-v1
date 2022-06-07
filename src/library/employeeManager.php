@@ -26,7 +26,6 @@ function deleteEmployee($id)
       $save = json_encode(array_values($employees), JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
       if (file_put_contents($employeeJSON, $save) !== false) {
         echo "EMPLOYEE DELETED";
-        getAllEmployees();
       }
     }
   }
@@ -64,23 +63,6 @@ function addEmployee(stdClass $newEmployee)
 }
 
 
-// function deleteEmployee(string $id)
-// {
-// // TODO implement it
-// }
-
-
-// function updateEmployee($id)
-// {
-//   $data = getEmployee($id);
-//   print_r($data);
-// }
-
-// function updateEmployee(array $updateEmployee)
-// {
-// // TODO implement it
-// }
-
 
 function getEmployee($id)
 {
@@ -91,22 +73,4 @@ function getEmployee($id)
       echo json_encode($employee);
     }
   }
-}
-
-
-// function removeAvatar($id)
-// {
-// // TODO implement it
-// }
-
-
-// function getQueryStringParameters(): array
-// {
-// // TODO implement it
-// return [];
-// }
-
-function getNextId(array $employeesCollection): int
-{
-  return sizeof($employeesCollection) + 1;
 }
