@@ -2,8 +2,6 @@
 if (!isset($_SESSION)) {
   session_start();
 }
-// session_start();
-
 
 $message = 'Click Login to enter';
 if (isset($_SESSION['error_message'])) {
