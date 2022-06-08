@@ -10,14 +10,15 @@ session_start();
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Document</title>
+  <link rel="stylesheet" href="../assets/css/employee.css">
 </head>
 
 <body>
-  <header>
+ 
+  <main class="employee-update"> 
     <!-- REQUIRE FROM HEADER.PHP COMPONENTE REUTILIZABLE EN EMPLOYEE/DASHBOARD -->
     <?php include('../assets/html/header.html') ?>
-  </header>
-  <main class="employee-update">
+    <section class="employee-form">
     <form action="./library/employeeController.php" method = 'POST'>
       <!-- FIELD 1  -->
       <fieldset class="employee-update__fieldset">
@@ -35,8 +36,9 @@ session_start();
       <!-- FIELD 2 -->
       <fieldset class="employee-update__fieldset">
         <!-- EMAIL -->
-        <span>Email:</span>
+        
         <label for="emailUpdate" class="employee-update__label">
+        <span>Email:</span>
           <input type="email" class="employee-update__input" name="emailUpdate" id="emailUpdate" />
         </label>
         <!-- GENDER -->
@@ -89,13 +91,13 @@ session_start();
       </fieldset>
       <!-- FIELDSET 6 -->
       <fieldset class="employee-update__fieldset update-container__btn">
+        <!-- RETURN TO DASHBOARD -->
+        <a href="../src/dashboard.php"><button class="secondary-btn">Return</button></a>
         <!-- SEND DATA TO UPDATE -->
         <a href="../src/dashboard.php"><button class="primary-btn" name="function" value="create">Send</button></a>
-        
-    </form>
-    <!-- RETURN TO DASHBOARD -->
-        <a href="../src/dashboard.php"><button>Return</button></a>
       </fieldset>
+    </form>
+    </section>
   </main>
 </body>
 
