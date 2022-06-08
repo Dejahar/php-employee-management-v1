@@ -26,23 +26,30 @@ if (isset($_SESSION['login'])) {
 </head>
 
 <body>
-  <div class="login-content">
-    <div class="login-content__logo">
-      <img src="./resources/badger.png" alt="A TOPO">
-      <h1 class="login_content_logo_title">A TOPO</h1>
-    </div>
-    <form class="login-content__form" action="./src/library/loginController.php" method="POST">
-      <label class="login-content__label" for="">Email</label>
-      <input class="login-content__input" type="email" name="email">
-
-      <label class="login-content__label" for="">Password</label>
-      <input class="login-content__input" type="text" name="password">
-      <div class="login-content__btn">
-        <button type="submit" name="login">Login</button>
+  <main class="login">
+    <div class="login-content">
+      <div class="login-content__title">
+        <h1>LOGIN</h1>
+        <p>Welcome back! Please enter your details</p>
       </div>
-      <div><?php echo $message ?></div>
-    </form>
-  </div>
+      <form class="login-content__form" action="./src/library/loginController.php" method="POST">
+        <label class="login-content__label" for="">
+          <span class="login-content__span"> 📧 Email :</span>
+          <input class="login-content__input" type="email" name="email">
+        </label>
+        <label class="login-content__label" for="">
+          <span class="login-content__span">🔑 Password :</span>
+          <input class="login-content__input" type="password" name="password"></label>
+        <div class="login-content__btn">
+          <button type="submit" name="login" class="primary-btn">Login</button>
+        </div>
+        <div><?php echo $message ?></div>
+      </form>
+    </div>
+    <div class="login-img">
+      <div class="login-backgorund"></div>
+    </div>
+  </main>
 </body>
 
 </html>

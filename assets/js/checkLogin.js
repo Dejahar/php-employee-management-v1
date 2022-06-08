@@ -1,5 +1,6 @@
 //!CHECKS LOGIN COOKIE
 setInterval(getCookie, 1000);
+
 function getCookie() {
   console.log('This is Interval');
   //post data to send

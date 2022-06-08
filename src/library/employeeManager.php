@@ -123,17 +123,3 @@ function getNextId(array $employeesCollection): int
   }
   return sizeof($employeesCollection) + 1;
 }
-
-
-
-// function removeAvatar($id)
-// {
-// // TODO implement it
-// }
-
-
-// function getQueryStringParameters(): array
-// {
-// // TODO implement it
-// return [];
-// }

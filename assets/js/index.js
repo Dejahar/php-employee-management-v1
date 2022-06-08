@@ -95,6 +95,7 @@ function deleteEmployee(e) {
 //!UPDATE EMPLOYEE
 function updateEmployee(e) {
   if (e.target.id !== "employeeDelete") {
+    window.location.href = "../src/employee.php";
     //TR WITH ID
     const id = e.target.parentElement.dataset.id;
     const data = new FormData();
