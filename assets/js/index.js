@@ -7,6 +7,24 @@ createEmployeeBtn.addEventListener("click", createFormDashboard);
 window.onload = () => {
   fetchEmployees();
 };
+//!CHECKS LOGIN COOKIE
+// setInterval(getCookie, 1000);
+// function getCookie() {
+//   console.log('This is Interval');
+//   //post data to send
+//   const data = new FormData();
+//   data.set("function", "cookie");
+//   fetch(urlPHP, {
+//     method: "GET",
+//     body: data,
+//   })
+//   .then((response) => response.text())
+//   .then((data) => {
+//     if (data == true) {
+//       window.location.href = '../';
+//     }
+//   });
+// }
 
 //!FETCH EMPLOYEES / GET
 async function fetchEmployees() {
@@ -15,9 +33,9 @@ async function fetchEmployees() {
   const data = new FormData();
   data.set("function", "read");
   fetch(urlPHP, {
-    method: "POST",
-    body: data,
-  })
+      method: "POST",
+      body: data,
+    })
     .then((reponse) => reponse.text())
     .then((data) => {
       const users = JSON.parse(data);
@@ -63,9 +81,9 @@ function deleteEmployee(e) {
     data.set("function", "delete");
     data.set("employeeID", id);
     fetch(urlPHP, {
-      method: "POST",
-      body: data,
-    })
+        method: "POST",
+        body: data,
+      })
       .then((response) => response.text())
       .then((data) => {
         fetchEmployees();
@@ -77,16 +95,21 @@ function deleteEmployee(e) {
 //!UPDATE EMPLOYEE
 function updateEmployee(e) {
   if (e.target.id !== "employeeDelete") {
-    window.location.href = '../src/employee.php';
     //TR WITH ID
     const id = e.target.parentElement.dataset.id;
     const data = new FormData();
     data.set("function", "update");
     data.set("employeeID", id);
     fetch(urlPHP, {
-      method: "POST",
-      body: data,
-    })
+        method: "POST",
+        body: data,
+      })
+      .then((response) => response.text())
+      .then((data) => {
+        if (data == true) {
+          window.location.href = '../src/employee.php';
+        }
+      });
   }
 }
 
@@ -218,9 +241,9 @@ function createEmployee(e) {
   data.set("function", "create");
   data.set("dashboardCreate", true);
   fetch(urlPHP, {
-    method: "POST",
-    body: data,
-  })
+      method: "POST",
+      body: data,
+    })
     .then((response) => response.text())
     .then((data) => {
       fetchEmployees();

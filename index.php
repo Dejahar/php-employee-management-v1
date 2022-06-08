@@ -12,7 +12,6 @@ if (isset($_SESSION['login'])) {
     header('Location:./src/dashboard.php');
   }
 }
-
 ?>
 
 <!DOCTYPE html>

@@ -89,6 +89,7 @@ function addEmployee(stdClass $newEmployee , $refresh)
   }
 }
 
+//Get the information needed to show in employee.php when a employee in dashboard is clicked
 function getEmployee($id)
 {
   $employeeData = getDataEmployee();
@@ -107,8 +108,10 @@ function getEmployee($id)
       $_SESSION['phoneUpdate'] = $employee->phoneNumber;
     }
   }
+  echo true;
 }
 
+//Get the the ID for a new or updated employeer
 function getNextId(array $employeesCollection): int
 {
   foreach($employeesCollection as $key => $employee){

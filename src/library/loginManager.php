@@ -45,7 +45,6 @@ function validatePassword($password)
 function logout()
 {
   unset($_SESSION);
-  unset($_COOKIE);
 
   if (ini_get("session.use_cookies")) {
     $params = session_get_cookie_params();

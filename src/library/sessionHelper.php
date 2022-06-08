@@ -8,21 +8,11 @@ if (!isset($_SESSION)) {
 function sessionOpen()
 {
     $_SESSION['login'] = true;
-    $lifeTime = 5;
-    setcookie("LogCookie", "", time() + $lifeTime);
+    $_SESSION['lifetime'] = time();
 }
 
 function sessionClose()
 {
     $_SESSION['login'] = false;
     logout();
-}
-
-function setInterval($f, $milliseconds)
-{
-    $seconds = (int)$milliseconds / 1000;
-    while (true) {
-        $f();
-        sleep($seconds);
-    }
 }
