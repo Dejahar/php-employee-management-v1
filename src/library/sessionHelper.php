@@ -9,7 +9,7 @@ function sessionOpen()
 {
     $_SESSION['login'] = true;
     $lifeTime = 5;
-    // setcookie("LogCookie", "", time() + $lifeTime);
+    setcookie("LogCookie", "", time() + $lifeTime);
 }
 
 function sessionClose()

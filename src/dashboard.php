@@ -1,10 +1,12 @@
 <?php
 require_once "./library/sessionHelper.php";
+
 if (!isset($_SESSION)) {
   session_start();
 }
-else{
-    header('Location: ../index.php');
+
+if (!isset($_SESSION['login']) || $_SESSION['login'] === false) {
+  header('Location: ../');
 }
 
 $_SESSION['nameUpdate'] = '';
