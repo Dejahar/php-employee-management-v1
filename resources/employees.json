@@ -63,5 +63,44 @@
         "state": "KNT",
         "postalCode": "445321",
         "phoneNumber": "224355488976"
+    },
+    {
+        "id": 6,
+        "name": "Brad",
+        "lastName": "Simpson",
+        "email": "brad@foo.com",
+        "gender": "man",
+        "age": 40,
+        "streetAddress": "128",
+        "city": "Atlanta",
+        "state": "GEO",
+        "postalCode": "394221",
+        "phoneNumber": "6854634522"
+    },
+    {
+        "id": 7,
+        "name": "Miguel",
+        "lastName": "Dominguez",
+        "email": "mikdominguez@gmail.com",
+        "gender": "men",
+        "age": "123",
+        "streetAddress": "mar e sol",
+        "city": "barcelona",
+        "state": "barça",
+        "postalCode": "123",
+        "phoneNumber": "123123"
+    },
+    {
+        "id": 8,
+        "name": "test",
+        "lastName": "test",
+        "email": "matias@tope.com",
+        "gender": "men",
+        "age": "123",
+        "streetAddress": "wp",
+        "city": "woop ",
+        "state": "barça",
+        "postalCode": "123",
+        "phoneNumber": "1214124"
     }
 ]

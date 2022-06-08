@@ -1,7 +1,9 @@
 <?php
-require "sessionHelper.php";
-session_start();
+require_once "sessionHelper.php";
 
+if (!isset($_SESSION)) {
+  session_start();
+}
 
 //Get information from the database and use that information in validateLogin function
 function login()
@@ -33,12 +35,13 @@ function validatePassword($password)
     sessionOpen();
     header('Location: ' . '../dashboard.php');
   } else {
-    echo 'password failed';
     //HTML error message
     $_SESSION['error_message'] = 'Password is not ok';
+    header('Location: ' . '../../');
   }
 }
 
+//Deletes the session and the cookie
 function logout()
 {
   unset($_SESSION);
@@ -54,7 +57,6 @@ function logout()
     );
   }
 
-  sessionClose();
   session_destroy();
   header('Location: ' . '../../');
 }

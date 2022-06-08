@@ -28,11 +28,29 @@ function deleteEmployee($id)
       $save = json_encode(array_values($employees), JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
       if (file_put_contents($employeeJSON, $save) !== false) {
         echo "EMPLOYEE DELETED";
-        getAllEmployees();
       }
     }
   }
 }
+
+function createEmployeeDashboard($form){
+  $newEmployee = new stdClass();
+  $employees = json_decode(getDataEmployee());
+  $newEmployee->id = getNextId($employees);
+  $newEmployee->name = $_POST['inputName'];
+  $newEmployee->lastname =  $_POST['inputLastname'];
+  $newEmployee->email = $_POST['inputEmail'];
+  $newEmployee->gender = "man";
+  $newEmployee->age = $_POST['inputAge'];
+  $newEmployee->streetAddress = $_POST['inputStreet'];
+  $newEmployee->city = $_POST['inputCity'];
+  $newEmployee->state = $_POST['inputState'];
+  $newEmployee->postalCode = $_POST['inputPostalCode'];
+  $newEmployee->phoneNumber = $_POST['inputPhone'];
+  addEmployee($newEmployee , false);
+}
+
+
 
 function getNewEmployeeInput()
 {
@@ -40,7 +58,7 @@ function getNewEmployeeInput()
   $employees = json_decode(getDataEmployee());
   $newEmployee->id = getNextId($employees);
   $newEmployee->name = $_POST['nameUpdate'];
-  $newEmployee->lastname =  $_POST['lastNameUpdate'];
+  $newEmployee->lastName =  $_POST['lastNameUpdate'];
   $newEmployee->email = $_POST['emailUpdate'];
   $newEmployee->gender = $_POST['genderUpdate'];
   $newEmployee->age = $_POST['ageUpdate'];
@@ -50,10 +68,10 @@ function getNewEmployeeInput()
   $newEmployee->postalCode = $_POST['postalUpdate'];
   $newEmployee->phoneNumber = $_POST['phoneUpdate'];
 
-  addEmployee($newEmployee);
+  addEmployee($newEmployee , true);
 }
 
-function addEmployee(stdClass $newEmployee)
+function addEmployee(stdClass $newEmployee , $refresh)
 {
   $employees = json_decode(getDataEmployee());
   $employeeJSON = "../../resources/employees.json";
@@ -61,29 +79,17 @@ function addEmployee(stdClass $newEmployee)
   $save = json_encode(array_values($employees), JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
   if (file_put_contents($employeeJSON, $save) !== false) {
     echo "EMPLOYEE ADDED";
-    header('Location: ' . '../dashboard.php');
+    if($refresh){
+        header('Location: ' . '../dashboard.php');
+        echo"EMPLOYEE ADDED AND REFRESH";
+    }
+    else {
+    echo"EMPLOYEE ADDED ASYNC";
+    }
   }
 }
 
-
-// function deleteEmployee(string $id)
-// {
-// // TODO implement it
-// }
-
-
-// function updateEmployee($id)
-// {
-//   $data = getEmployee($id);
-//   print_r($data);
-// }
-
-// function updateEmployee(array $updateEmployee)
-// {
-// // TODO implement it
-// }
-
-
+//Get the information needed to show in employee.php when a employee in dashboard is clicked
 function getEmployee($id)
 {
   $employeeData = getDataEmployee();
@@ -102,6 +108,20 @@ function getEmployee($id)
       $_SESSION['phoneUpdate'] = $employee->phoneNumber;
     }
   }
+  echo true;
+}
+
+//Get the the ID for a new or updated employeer
+function getNextId(array $employeesCollection): int
+{
+  foreach($employeesCollection as $key => $employee){
+    if($employee -> email == $_POST['emailUpdate']){
+      $id = $employee -> id;
+      deleteEmployee($id);
+      return $id;
+    }
+  }
+  return sizeof($employeesCollection) + 1;
 }
 
 
@@ -117,8 +137,3 @@ function getEmployee($id)
 // // TODO implement it
 // return [];
 // }
-
-function getNextId(array $employeesCollection): int
-{
-  return sizeof($employeesCollection) + 1;
-}

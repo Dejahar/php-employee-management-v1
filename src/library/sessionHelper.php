@@ -1,12 +1,18 @@
 <?php
-session_start();
+require_once "loginManager.php";
 
-function sessionOpen(){
-    $_SESSION['login'] = true;
-    $lifeTime = 5;
-    session_set_cookie_params($lifeTime);
+if (!isset($_SESSION)) {
+    session_start();
 }
 
-function sessionClose(){
+function sessionOpen()
+{
+    $_SESSION['login'] = true;
+    $_SESSION['lifetime'] = time();
+}
+
+function sessionClose()
+{
     $_SESSION['login'] = false;
-};
+    logout();
+}

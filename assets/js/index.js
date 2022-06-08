@@ -7,6 +7,24 @@ createEmployeeBtn.addEventListener("click", createFormDashboard);
 window.onload = () => {
   fetchEmployees();
 };
+//!CHECKS LOGIN COOKIE
+// setInterval(getCookie, 1000);
+// function getCookie() {
+//   console.log('This is Interval');
+//   //post data to send
+//   const data = new FormData();
+//   data.set("function", "cookie");
+//   fetch(urlPHP, {
+//     method: "GET",
+//     body: data,
+//   })
+//   .then((response) => response.text())
+//   .then((data) => {
+//     if (data == true) {
+//       window.location.href = '../';
+//     }
+//   });
+// }
 
 //!FETCH EMPLOYEES / GET
 async function fetchEmployees() {
@@ -53,36 +71,45 @@ function createTableEmployees(user) {
   tr.appendChild(deleteCol);
   return tr;
 }
+
 //!DELETE EMPLOYEE
 function deleteEmployee(e) {
-  const id = e.target.dataset.id;
-  //post data to send
-  const data = new FormData();
-  data.set("function", "delete");
-  data.set("employeeID", id);
-  fetch(urlPHP, {
-      method: "POST",
-      body: data,
-    })
-    .then((response) => response.text())
-    .then((data) => {
-      fetchEmployees();
-    });
+  if (confirm("Are you sure you want to save this thing into the database?")) {
+    const id = e.target.dataset.id;
+    //post data to send
+    const data = new FormData();
+    data.set("function", "delete");
+    data.set("employeeID", id);
+    fetch(urlPHP, {
+        method: "POST",
+        body: data,
+      })
+      .then((response) => response.text())
+      .then((data) => {
+        fetchEmployees();
+        alert("EMPLOYEE DELETED SUCCESFULLY");
+      });
+  }
 }
 
 //!UPDATE EMPLOYEE
 function updateEmployee(e) {
   if (e.target.id !== "employeeDelete") {
-    window.location.href = '../src/employee.php';
     //TR WITH ID
     const id = e.target.parentElement.dataset.id;
     const data = new FormData();
     data.set("function", "update");
     data.set("employeeID", id);
     fetch(urlPHP, {
-      method: "POST",
-      body: data,
-    })
+        method: "POST",
+        body: data,
+      })
+      .then((response) => response.text())
+      .then((data) => {
+        if (data == true) {
+          window.location.href = '../src/employee.php';
+        }
+      });
   }
 }
 
@@ -98,6 +125,7 @@ function createFormDashboard(e) {
   const inputName = document.createElement("input");
   inputName.className = "table-employee__create-input";
   inputName.name = "inputName";
+  inputName.type = "text";
   tdName.append(inputName);
   //TD - INPUT LASTNAME
   const tdLastname = document.createElement("td");
@@ -105,6 +133,7 @@ function createFormDashboard(e) {
   const inputLastname = document.createElement("input");
   inputLastname.className = "table-employee__create-input";
   inputLastname.name = "inputLastname";
+  inputLastname.type = "text";
   tdLastname.append(inputLastname);
   //TD - INPUT EMAIL
   const tdEmail = document.createElement("td");
@@ -112,20 +141,25 @@ function createFormDashboard(e) {
   const inputEmail = document.createElement("input");
   inputEmail.className = "table-employee__create-input";
   inputEmail.name = "inputEmail";
+  inputEmail.type = "email";
   tdEmail.append(inputEmail);
+
   //TD - INPUT AGE
   const tdAge = document.createElement("td");
   tdAge.className = "table-employee__body-col table-employee__create-col";
   const inputAge = document.createElement("input");
   inputAge.className = "table-employee__create-input";
   inputAge.name = "inputAge";
+  inputAge.type = "number";
   tdAge.append(inputAge);
+
   //TD - INPUT STREET
   const tdStreet = document.createElement("td");
   tdStreet.className = "table-employee__body-col table-employee__create-col";
   const inputStreet = document.createElement("input");
   inputStreet.className = "table-employee__create-input";
   inputStreet.name = "inputStreet";
+  inputStreet.type = "text";
   tdStreet.append(inputStreet);
   //TD - INPUT CITY
   const tdCity = document.createElement("td");
@@ -133,14 +167,18 @@ function createFormDashboard(e) {
   const inputCity = document.createElement("input");
   inputCity.className = "table-employee__create-input";
   inputCity.name = "inputCity";
+  inputCity.type = "text";
   tdCity.append(inputCity);
+
   //TD - INPUT STATE
   const tdState = document.createElement("td");
   tdState.className = "table-employee__body-col table-employee__create-col";
   const inputState = document.createElement("input");
   inputState.className = "table-employee__create-input";
   inputState.name = "inputState";
+  inputState.type = "text";
   tdState.append(inputState);
+
   //TD - INPUT POSTAL CODE
   const tdPostalCode = document.createElement("td");
   tdPostalCode.className =
@@ -148,21 +186,25 @@ function createFormDashboard(e) {
   const inputPostalCode = document.createElement("input");
   inputPostalCode.className = "table-employee__create-input";
   inputPostalCode.name = "inputPostalCode";
+  inputPostalCode.type = "number";
   tdPostalCode.append(inputPostalCode);
+
   //TD - INPUT PHONE NUMBER
   const tdPhone = document.createElement("td");
   tdPhone.className = "table-employee__body-col table-employee__create-col";
   const inputPhone = document.createElement("input");
   inputPhone.className = "table-employee__create-input";
   inputPhone.name = "inputPhone";
+  inputPhone.type = "number";
   tdPhone.append(inputPhone);
 
   //TD BUTTON CREATE
   const tdCreateBtn = document.createElement("td");
   tdCreateBtn.className = "table-employee__body-col table-employee__create-col";
   const createBtn = document.createElement("button");
+  createBtn.type = "submit";
   createBtn.textContent = "CREATE v2";
-  createBtn.addEventListener("click", createEmployee);
+  createBtn.addEventListener("click", formValidation);
   tdCreateBtn.append(createBtn);
   //Add td to tr
   tr.append(
@@ -186,7 +228,49 @@ function createFormDashboard(e) {
 function addInputsToForm(tr) {
   const form = document.createElement("form");
   form.id = "createForm";
+  document.body.append(form);
   const inputs = tr.querySelectorAll("input");
+  inputs.forEach((input) => {
+    input.setAttribute("form", "createForm");
+  });
 }
 
-function createEmployee(e) {}
+function createEmployee(e) {
+  const form = document.getElementById("createForm");
+  const data = new FormData(form);
+  data.set("function", "create");
+  data.set("dashboardCreate", true);
+  fetch(urlPHP, {
+      method: "POST",
+      body: data,
+    })
+    .then((response) => response.text())
+    .then((data) => {
+      fetchEmployees();
+      alert("EMPLOYEE CREATED SUCCESFULLY");
+    });
+}
+
+function formValidation(e) {
+  e.preventDefault();
+  let data = new FormData(createForm);
+  let valid = true;
+  for (const value of data.entries()) {
+    if (value[1] === "") {
+      valid = false;
+    }
+  }
+  if (valid) {
+    createEmployee();
+  } else {
+    invalidForm();
+  }
+}
+
+function invalidForm() {
+  const tr = document.querySelectorAll("#rowFormCreate input");
+  console.log(tr);
+  for (const column of tr) {
+    column.style.border = "red 1px solid";
+  }
+}

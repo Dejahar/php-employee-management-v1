@@ -1,11 +1,14 @@
 <?php
-session_start();
+if (!isset($_SESSION)) {
+  session_start();
+}
+
 $message = 'Click Login to enter';
 if (isset($_SESSION['error_message'])) {
   $message = $_SESSION['error_message'];
 }
 if (isset($_SESSION['login'])) {
-  if ($_SESSION['login'] == true ) {
+  if ($_SESSION['login'] == true) {
     header('Location:./src/dashboard.php');
   }
 }
