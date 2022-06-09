@@ -58,6 +58,9 @@ body {
 }
 .table-employee__create-input {
   width: 100%;
+  font-size: var(--normal);
+  border: none;
+  outline: none;
 }
 
 /*TABLE BOTTOM*/
@@ -97,5 +100,13 @@ body {
   border: none;
   background-color: transparent;
   font-size: var(--medium);
+  cursor: pointer;
+}
+
+/*CREATE BTN*/
+.dashboard__create-btn {
+  font-size: 1.4rem;
+  background-color: transparent;
+  border: none;
   cursor: pointer;
 }

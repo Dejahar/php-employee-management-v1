@@ -107,14 +107,12 @@ if (!isset($_SESSION['login']) || $_SESSION['login'] === false) {
         </fieldset>
         <!-- FIELDSET 6 -->
         <fieldset class="employee-update__fieldset update-container__btn">
-          <!-- RETURN TO DASHBOARD -->
-          <a href="../src/dashboard.php"><button class="secondary-btn">Return</button></a>
           <!-- SEND DATA TO UPDATE -->
-          <a href="../src/dashboard.php"><button class="primary-btn" name="function" value="create">Send</button></a>
+          <a href="../src/dashboard.php"><button class="primary-btn create__btn__update" name="function" value="create">Send</button></a>
+        </fieldset>
       </form>
-      </fieldset>
       <!-- RETURN TO DASHBOARD -->
-      <a href="../src/dashboard.php"><button>Return</button></a>
+      <a href="../src/dashboard.php"><button class="return__btn">🔙</button></a>
   </main>
 </body>
 

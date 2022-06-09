@@ -204,7 +204,8 @@ function createFormDashboard(e) {
   tdCreateBtn.className = "table-employee__body-col table-employee__create-col";
   const createBtn = document.createElement("button");
   createBtn.type = "submit";
-  createBtn.textContent = "CREATE v2";
+  createBtn.textContent = "🆕";
+  createBtn.className = "dashboard__create-btn";
   createBtn.addEventListener("click", formValidation);
   tdCreateBtn.append(createBtn);
   //Add td to tr
@@ -271,6 +272,6 @@ function formValidation(e) {
 function invalidForm() {
   const tr = document.querySelectorAll("#rowFormCreate input");
   for (const column of tr) {
-    column.style.border = "red 1px solid";
+    column.style.border = "red 2px solid";
   }
 }

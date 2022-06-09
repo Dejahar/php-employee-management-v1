@@ -22,11 +22,17 @@ nav {
   flex-direction: column;
   font-size: var(--medium);
 }
-
 .nav-link {
+  padding: 0.7rem 1rem;
   text-decoration: none;
   margin: 1rem 0;
   color: black;
+  transition: all 0.2s ease-in-out;
+}
+.nav-link:hover {
+  background-color: var(--normal-blue);
+  transform: scale(1.05);
+  border-radius: 0.5rem;
 }
 
 .nav__logo {
