@@ -226,7 +226,7 @@ function createFormDashboard(e) {
   //add to table body
   tableBody.prepend(tr);
 }
-
+//!ADD INPUTS TO THE TABLE
 function addInputsToForm(tr) {
   const form = document.createElement("form");
   form.id = "createForm";
@@ -236,7 +236,7 @@ function addInputsToForm(tr) {
     input.setAttribute("form", "createForm");
   });
 }
-
+//!FETCH FUNCTION TO PHP TO CREATE EMPLOYEE
 function createEmployee(e) {
   const form = document.getElementById("createForm");
   const data = new FormData(form);
@@ -252,7 +252,7 @@ function createEmployee(e) {
       alert("Employee created succesfully ✔️");
     });
 }
-
+//!VALIDATE FORM FROM DASHBOARD
 function formValidation(e) {
   e.preventDefault();
   let data = new FormData(createForm);
@@ -268,7 +268,7 @@ function formValidation(e) {
     invalidForm();
   }
 }
-
+//!APPLY STYLE IF ITS FORM FROM DASHBOARD ITS WRONG
 function invalidForm() {
   const tr = document.querySelectorAll("#rowFormCreate input");
   for (const column of tr) {

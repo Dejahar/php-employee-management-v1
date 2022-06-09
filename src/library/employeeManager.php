@@ -1,6 +1,7 @@
 <?php
 session_start();
 
+//!GET DATA FROM THE JSON 
 function getDataEmployee()
 {
   //Url json with employees
@@ -9,21 +10,26 @@ function getDataEmployee()
   $data = file_get_contents($employeeJSON);
   return $data;
 }
-
+//!RETURN ALL EMPLOYEES TO JAVASCRIPT
 function getAllEmployees()
 {
   $employeeData = getDataEmployee();
   //Convert string JSON to PHP
   echo $employeeData;
 }
-
+//!DELETE EMPLOYEEE
 function deleteEmployee($id)
 {
+  //Get employees from JSON
   $employeeData = getDataEmployee();
+  //Decode json to php format object
   $employees = json_decode($employeeData);
   $employeeJSON = "../../resources/employees.json";
+  //foreach of all employees
   foreach ($employees as $key => $employee) {
+    //If id passed from JS BTN dataset is equal to "employee id"
     if ($employee->id == $id) {
+      //delete object inside an array and add to JSON file
       unset($employees[$key]);
       $save = json_encode(array_values($employees), JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
       if (file_put_contents($employeeJSON, $save) !== false) {
@@ -32,7 +38,7 @@ function deleteEmployee($id)
     }
   }
 }
-
+//!CREATE EMPLOYEE FROM DASHBOARD
 function createEmployeeDashboard($form){
   $newEmployee = new stdClass();
   $employees = json_decode(getDataEmployee());

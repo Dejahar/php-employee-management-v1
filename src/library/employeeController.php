@@ -1,9 +1,10 @@
 <?php
 require_once "employeeManager.php";
 require_once "loginManager.php";
-
+//!GET DATA FROM FETCH PETITION
 $function = $_POST["function"];
 
+//!DEPEND ON THE VALUE OF THE KEY "FUNTION" EXECUTE SOME METHOD...
 switch ($function) {
     case 'create':
         if ($_POST["dashboardCreate"]) {
