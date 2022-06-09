@@ -143,45 +143,6 @@
         "phoneNumber": "91232876454"
     },
     {
-        "id": 13,
-        "name": "dddd",
-        "lastname": "ddd",
-        "email": "dd",
-        "gender": "man",
-        "age": "23",
-        "streetAddress": "eeee",
-        "city": "eee",
-        "state": "eee",
-        "postalCode": "1221312",
-        "phoneNumber": "123123123"
-    },
-    {
-        "id": 14,
-        "name": "aaaa",
-        "lastname": "aa",
-        "email": "aaaaa@gmail.com",
-        "gender": "man",
-        "age": "11",
-        "streetAddress": "as",
-        "city": "aaa",
-        "state": "aa",
-        "postalCode": "21312",
-        "phoneNumber": "123123"
-    },
-    {
-        "id": 15,
-        "name": "Miguel",
-        "lastname": "ddd",
-        "email": "ivan@gmail.com",
-        "gender": "men",
-        "age": "23",
-        "streetAddress": "Josep tarradellas",
-        "city": "ssss",
-        "state": "BCN",
-        "postalCode": "123123",
-        "phoneNumber": "55555555555"
-    },
-    {
         "id": 2,
         "name": "Robert",
         "lastName": "Thomson",

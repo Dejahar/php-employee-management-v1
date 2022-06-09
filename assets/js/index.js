@@ -33,9 +33,9 @@ async function fetchEmployees() {
   const data = new FormData();
   data.set("function", "read");
   fetch(urlPHP, {
-      method: "POST",
-      body: data,
-    })
+    method: "POST",
+    body: data,
+  })
     .then((reponse) => reponse.text())
     .then((data) => {
       const users = JSON.parse(data);
@@ -64,7 +64,7 @@ function createTableEmployees(user) {
   const deleteBtn = document.createElement("button");
   deleteBtn.id = "employeeDelete";
   deleteBtn.className = "employee_delete";
-  deleteBtn.textContent = "DELETE";
+  deleteBtn.textContent = "❌";
   deleteBtn.setAttribute("data-id", user.id);
   deleteBtn.addEventListener("click", deleteEmployee);
   deleteCol.append(deleteBtn);
@@ -81,9 +81,9 @@ function deleteEmployee(e) {
     data.set("function", "delete");
     data.set("employeeID", id);
     fetch(urlPHP, {
-        method: "POST",
-        body: data,
-      })
+      method: "POST",
+      body: data,
+    })
       .then((response) => response.text())
       .then((data) => {
         fetchEmployees();
@@ -102,13 +102,13 @@ function updateEmployee(e) {
     data.set("function", "update");
     data.set("employeeID", id);
     fetch(urlPHP, {
-        method: "POST",
-        body: data,
-      })
+      method: "POST",
+      body: data,
+    })
       .then((response) => response.text())
       .then((data) => {
         if (data == true) {
-          window.location.href = '../src/employee.php';
+          window.location.href = "../src/employee.php";
         }
       });
   }
@@ -242,9 +242,9 @@ function createEmployee(e) {
   data.set("function", "create");
   data.set("dashboardCreate", true);
   fetch(urlPHP, {
-      method: "POST",
-      body: data,
-    })
+    method: "POST",
+    body: data,
+  })
     .then((response) => response.text())
     .then((data) => {
       fetchEmployees();
@@ -270,7 +270,6 @@ function formValidation(e) {
 
 function invalidForm() {
   const tr = document.querySelectorAll("#rowFormCreate input");
-  console.log(tr);
   for (const column of tr) {
     column.style.border = "red 1px solid";
   }

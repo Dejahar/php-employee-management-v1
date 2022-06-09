@@ -23,10 +23,10 @@ body {
   display: flex;
   flex: 2;
   flex-direction: column;
-  justify-content: space-around;
   padding: 5rem;
   background-color: rgba(255, 255, 255, 0.565);
   overflow-y: auto;
+  overflow-x: hidden;
 }
 
 /*SCROLLBAR*/
@@ -62,24 +62,40 @@ body {
 
 /*TABLE BOTTOM*/
 .table-employee__bottom {
+  border-radius: 0.5rem;
   border: none;
 }
 
 /*TABLE HEADER*/
 .table-employee__header {
+  font-size: var(--normal);
   text-align: left;
   background-color: aliceblue;
+  line-height: 2rem;
 }
 .table-employee__header-col {
-  padding: 1rem 0;
+  padding: 0.5rem 1rem;
 }
 /*TABLE EMPLOYEE ROW*/
 .table-employee__body-row {
   background-color: var(--normal-blue);
-  line-height: 1.5rem;
+  line-height: 2rem;
   border-bottom: 1px solid white;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+.table-employee__body-row:hover {
+  background-color: var(--light-blue);
 }
 /*TABLE EMPLOYEE COL*/
 .table-employee__body-col {
-  padding: 0.5rem 0;
+  padding: 0.5rem 1rem;
+}
+
+/*DELETE BTN*/
+.employee_delete {
+  border: none;
+  background-color: transparent;
+  font-size: var(--medium);
+  cursor: pointer;
 }

@@ -24,7 +24,7 @@ switch ($function) {
         deleteEmployee($id);
         break;
     case 'cookie':
-        $login_session_duration = 5;
+        $login_session_duration = 1000;
         if ((time() - $_SESSION['lifetime'] ) >  $login_session_duration) {
             logout();
             echo true;

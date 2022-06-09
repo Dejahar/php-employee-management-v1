@@ -13,17 +13,27 @@ nav {
   align-items: center;
   height: 100%;
   width: 100%;
-  padding: 1rem 2rem;
+  padding: 3rem 2rem;
   background-color: var(--light-blue);
 }
 
 .nav__menu {
   display: flex;
   flex-direction: column;
+  font-size: var(--medium);
 }
 
 .nav-link {
   text-decoration: none;
   margin: 1rem 0;
   color: black;
+}
+
+.nav__logo {
+  font-size: var(--normal);
+  text-align: center;
+}
+
+.nav__logo h3 {
+  padding: 1rem 0;
 }

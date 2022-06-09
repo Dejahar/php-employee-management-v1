@@ -57,13 +57,10 @@ $_SESSION['phoneUpdate'] = '';
             <th class="table-employee__header-col">Street</th>
             <th class="table-employee__header-col">City</th>
             <th class="table-employee__header-col">State</th>
-            <th class="table-employee__header-col">Postal code</th>
-            <th class="table-employee__header-col">Phone number</th>
+            <th class="table-employee__header-col">P. code</th>
+            <th class="table-employee__header-col">Phone</th>
             <th class="table-employee__header-col">
-              <!-- BUTTON CREATE -->
-              <button class="employee__create" id="createEmployee">
-                CREATE
-              </button>
+            🗑️
             </th>
           </tr>
         </thead>
