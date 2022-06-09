@@ -74,7 +74,7 @@ function createTableEmployees(user) {
 
 //!DELETE EMPLOYEE
 function deleteEmployee(e) {
-  if (confirm("Are you sure you want to save this thing into the database?")) {
+  if (confirm("Are you sure you want to delete this employee? ⚠️")) {
     const id = e.target.dataset.id;
     //post data to send
     const data = new FormData();
@@ -87,7 +87,7 @@ function deleteEmployee(e) {
       .then((response) => response.text())
       .then((data) => {
         fetchEmployees();
-        alert("EMPLOYEE DELETED SUCCESFULLY");
+        alert("Employee deleted succesfully ✔️");
       });
   }
 }
@@ -248,7 +248,7 @@ function createEmployee(e) {
     .then((response) => response.text())
     .then((data) => {
       fetchEmployees();
-      alert("EMPLOYEE CREATED SUCCESFULLY");
+      alert("Employee created succesfully ✔️");
     });
 }
 
